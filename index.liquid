@@ -1,0 +1,62 @@
+---
+layout: layouts/base.liquid
+---
+
+<!-- START Front page contents -->
+<section
+  class="bg-white p-4 rounded-lg grid gap-4 grid-cols-1 grid-flow-col auto-cols-max text-base auto-cols-min"
+>
+  {{ site.description | md }}
+  <figure class="flex flex-row justify-end">
+    <img
+      src="{{ '/img/alice.webp' | url }}"
+      alt="Alice's pfp"
+      class="h-48 w-48 object-cover"
+    />
+  </figure>
+</section>
+<!-- END Front page contents -->
+
+<!-- START Blogposts -->
+<section>
+  <h2 class="bg-white p-4 rounded-lg text-xl font-bold mb-4">Posts</h2>
+
+  <section class="grid gap-4">
+    {%- for post in collections.post reversed -%}
+    <article
+      class="bg-white rounded-lg text-base overflow-hidden grid grid-cols-1 gap-2 overflow-hidden"
+    >
+      {% if post.data.thumbnail %}
+      <img
+        src="{{ post.data.thumbnail }}"
+        alt="thumbnail"
+        class="object-cover object-center w-full h-48"
+      />
+      {% endif %}
+      <h3 class="text-lg font-bold m-4 mb-0">
+        <a
+          href="{{ post.url }}"
+          alt="Go to the page
+        {{ post.data.title }}"
+          class="hover:underline"
+        >
+          {{ post.data.title }}
+        </a>
+      </h3>
+      <p class="text-base mx-4">
+        {{ post.data.description }}
+      </p>
+
+      <a
+        href="{{ post.url }}"
+        alt="Go to the page
+        {{ post.data.title }}"
+        class="m-4 mt-0 underline font-bold text-sm"
+      >
+        Read more
+      </a>
+    </article>
+    {%- endfor -%}
+  </section>
+</section>
+<!-- END Blogposts -->

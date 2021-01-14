@@ -1,0 +1,34 @@
+---
+layout: layouts/base.liquid
+---
+
+<!-- START Blogpost -->
+<article
+  class="bg-white rounded-lg text-base overflow-hidden grid grid-cols-1 gap-2 overflow-hidden"
+>
+  {% if thumbnail %}
+  <img
+    src="{{ thumbnail }}"
+    alt="thumbnail"
+    class="object-cover object-center w-full h-48"
+  />
+  {% endif %}
+  <section class="p-4">
+    <h1 class="text-2xl font-bold">
+      {{ title }}
+    </h1>
+    <p class="text-base">
+      {{ description }}
+    </p>
+    <br />
+    <p class="text-sm text-gray-400">Published: {{ published }}</p>
+    <p class="text-sm text-gray-400">Tags: {{ tags | join: "," }}</p>
+  </section>
+
+  <hr />
+
+  <section class="p-4">
+    {{ content }}
+  </section>
+</article>
+<!-- END Blogpost -->

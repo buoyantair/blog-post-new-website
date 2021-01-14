@@ -1,0 +1,31 @@
+body {
+  display: grid;
+  grid-template-columns: 1fr 40% 1fr;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: underline;
+}
+
+header,
+main,
+footer {
+  grid-column: 2;
+}
+
+header {
+  height: 100px;
+}
+
+footer {
+  height: 50px;
+}
+
+@media screen and (max-width: 1024px) {
+  body {
+    grid-template-columns: 1fr 80% 1fr;
+  }
+}
